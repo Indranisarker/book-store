@@ -35,7 +35,7 @@ This project involves developing an online bookstore that serves two types of us
 - Detailed information about each book, including title, author, description, price, and reviews.
 
 #### Shopping Cart and Checkout
-- **Shopping Cart**: Customers can add and remove books from their cart. Cart items will show for a specific user.
+- **Shopping Cart**: Customers can add and remove books from their cart. The cart items are stored in the cart until they confirm the order and make the payment.
 - **Checkout Process**: Enter shipping information, select a payment method, and confirm the order.
 
 #### Customer Reviews
