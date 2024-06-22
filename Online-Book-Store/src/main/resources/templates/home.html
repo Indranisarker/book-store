@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<link th:include="navbar.html">
+<img style="margin-left: 150px;" th:src="@{/images/Book Delivery Service.png}" alt="home image" class="homeLogo">
+<section class="about-us">
+    <div class="container">
+        <div class="image">
+            <img src="https://imageio.forbes.com/blogs-images/rachelkramerbussel/files/2018/12/prologue-bookshop-new-year-books.jpg?height=711&width=711&fit=bounds" alt="Team Meeting">
+        </div>
+        <div class="content">
+            <h2>Welcome to Our BookStore</h2>
+            <h3>About Us</h3>
+            <p>At Our Store, we believe that every dream deserves nurturing and guidance to transform it into reality. With a focus on integrity, transparency, and empathy, we strive to create a warm and supportive environment for all our clients. We understand that each student is unique, and our personalized approach ensures that you receive tailored assistance to make the best decisions for your academic and professional growth.</p>
+            <blockquote>We deliver true results, focusing on strategic decisions and practical actions tailored to our clients' unique reality.</blockquote>
+        </div>
+    </div>
+</section>
+<section class="statement">
+    <h1>Our Mission & Vision</h1>
+    <br>
+    <br>
+    <p> “Our mission is to <span class="bold">inspire</span> and <span class="bold">nurture</span> a <span class="bold">love</span> for <span class="bold">reading</span> by <span class="bold">delivering</span> a <span class="bold">curated selection</span> of <span class="bold">books</span> to <span class="bold">readers</span> around the <span class="bold">world</span>, seamlessly blending <span class="bold">convenience</span> with an exceptional <span class="bold">literary experience</span>.”</p>
+    <section class="quiotion">
+        <br>
+        <br>
+        <br>
+        <p> “To become the <span class="bold">world's most beloved</span> online <span class="bold">bookstore</span>, where every <span class="bold">book lover</span> can find their next <span class="bold">great read</span>, and where the <span class="bold">joy of discovery</span> and the <span class="bold">pursuit of knowledge</span> are <span class="bold">celebrated</span> is our vision.”</p>
+    </section>
+</section>
+<link th:include="footer.html">
+</body>
+</html>

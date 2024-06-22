@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Navbar</title>
+    <link rel="stylesheet" th:href="@{/css/userStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="navbar-left">
+        <img src="https://t4.ftcdn.net/jpg/02/11/07/81/360_F_211078110_mttxEdu3gsSbMKajsy98E4M4E5RUCiuo.jpg" class="logo" alt="Book Store icon">
+    </div>
+    <div class="navbar-center">
+        <a th:href="@{/user/view-books}">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Category</button>
+            <div class="dropdown-content">
+                <a href="#">Fiction</a>
+                <a href="#">Thriller</a>
+                <a href="#">Drama</a>
+                <a href="#">Science Fiction</a>
+            </div>
+        </div>
+        <a th:href="@{/user/review}">Add Review</a>
+    </div>
+    <div class="search-container">
+        <form th:action="@{/user/search}" method="GET">
+            <input type="text" name="keyword" placeholder="Search by name">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    <div class="navbar-right">
+        <a th:href="@{/user/cart}" style="display: inline-block">
+            <i style='font-size:27px;color: #e53935; margin-right: 30px' class='fas'>&#xf07a;</i>
+        </a>
+        <a th:href="@{/logout}" class="signup">Logout</a>
+    </div>
+</nav>
+</body>
+</html>

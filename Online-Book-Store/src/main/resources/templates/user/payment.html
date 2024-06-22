@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <link rel="stylesheet" th:href="@{/css/userStyle.css}">
+</head>
+<body>
+<link th:include="user/userNavbar.html">
+<form id="paymentForm" th:action="@{/user/processPayment}" method="POST">
+    <input type="hidden" name="cartItemsList" id="cartItemsInput">
+<div class="payment-container">
+<div class="payment-method">
+    <h2>Payment Method <small>(Please select a payment method)</small></h2>
+    <div class="payment-option">
+        <p style="font-size: 20px"><b>Cash on Delivery</b></p>
+        <p>Pay on receiving the product</p>
+        <div class="payment-option-container">
+        <div class="option-header">
+            <label for="cod">
+            <input type="radio" id="cod" name="payment" value="cod">
+
+                <img th:src="@{/images/cash delivery.png}" alt="Cash on Delivery Icon">
+                <span>Cash on Delivery</span>
+            </label>
+        </div>
+        </div>
+        <br>
+    </div>
+    <br>
+    <div class="payment-option">
+        <div class="option-header">
+            <label>
+                <span style="font-size: 20px">Mobile Wallet</span>
+            </label>
+        </div>
+        <p>Pay through mobile wallet</p>
+        <div class="wallet-options">
+        <div class="payment-option-container">
+            <label>
+                <input type="radio" name="mobile-wallet-option" value="bkash">
+                <img th:src="@{/images/bkash.png}" alt="bKash">
+            </label>
+        </div>
+            <div class="payment-option-container">
+            <label>
+                <input type="radio" name="mobile-wallet-option" value="nagad">
+                <img th:src="@{/images/nagad.png}" alt="Nagad">
+            </label>
+            </div>
+            <div class="payment-option-container">
+            <label>
+                <input type="radio" name="mobile-wallet-option" value="rocket">
+                <img th:src="@{/images/rocket.png}" alt="Rocket">
+            </label>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper">
+        <button type="submit" class="checkout" style="margin-top: 20px">Confirm Order</button>
+    </div>
+</div>
+</div>
+</form>
+<link th:include="footer.html">
+</body>
+</html>

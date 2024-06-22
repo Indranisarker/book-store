@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Details</title>
+    <link rel="stylesheet" th:href="@{css/userStyle.css}">
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+    <script th:src="@{js/bootstrap.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<link th:include="/user/userNavbar.html">
+<div class="text-center" style="font-size: 20px; font-weight: bold" th:if="${book == null}">
+    No books found!
+</div>
+<div th:if="${book != null}">
+    <div class="col-md-1"></div>
+    <div class="col-md-5 no-padding lib-item" data-category="ui">
+        <div class="lib-panel">
+            <div class="row box-shadow">
+                <div class="col-md-6">
+                    <img class="lib-img" th:src="'data:image/jpeg;base64,' + ${book.imageBase64}">
+                </div>
+                <div class="col-md-6">
+                    <div class="lib-row lib-header" th:text="${book.name}">
+                    </div>
+                    <div class="lib-row lib-desc">
+                        <p style="font-size: 17px">Authored By <span style="font-size: 17px;font-weight: bold" th:text="${book.author}"></span></p>
+                        <p style="font-size: 17px"><span style="font-size: 17px;font-weight: bold">Category </span>: <span th:text="${book.category}"></span></p>
+                        <div class="rating">
+                        <div class="review-rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                        </div>
+                            <div style="position: relative; flex:1; margin-left: 150px">
+                            <a th:href="@{'/user/review-details/' + ${book.id}}">
+                                 <span style="font-size: 16px; color: black" th:text="${ratingCount + ' Ratings | ' + reviewCount + ' Reviews'}"></span>
+                            </a>
+                            </div>
+                        </div>
+                        <p style="font-size: 20px; font-weight: bold">TK. <span th:text="${book.price}"></span></p>
+                        <p th:if="${book.quantity > 0}" style="font-size: 17px">
+                            <span class="glyphicon glyphicon-ok" style="font-size: 15px; color: #4cae4c"></span> In Stock
+                            <span style="color: red">(Only <span th:text="${book.quantity}"></span> pieces available)</span>
+                        </p>
+                        <p th:if="${book.quantity == 0}" style="font-size: 17px">
+                            <span class="glyphicon glyphicon-exclamation-sign" style="font-size: 15px; color: #ee2929"></span> Out of Stock
+                        </p>
+                        <div class="book-info">
+                            <p style="font-size: 17px">Book Length: <span style="font-size: 17px;font-weight: bold" th:text="${book.pages}"></span> pages</p>
+                            <p style="font-size: 17px">Publication: <span style="font-size: 17px;font-weight: bold" th:text="${book.publication}"></span></p>
+                            <p style="font-size: 17px">ISBN: <span th:text="${book.ISBN}"></span></p>
+                        </div>
+                    </div>
+                    <div class="button-container">
+                        <a th:if="${book.id != null}" th:href="@{'/user/book-review/' + ${book.id}}" class="review-button">Add Book Review</a>
+                        <form id="addToCartForm" th:if="${book.quantity != 0 && book.quantity > 1}" th:action="@{'/user/cart/add/' + ${user.user_id}}"  method="POST">
+                            <input type="hidden" name="bookId" th:value="${book.id}">
+                            <input type="hidden" name="userId" th:value="${user.user_id}">
+                            <button type="submit" class="add-to-cart" data-toggle="modal">
+                                <span class="glyphicon glyphicon-shopping-cart" style="font-size: 17px"></span> Add to Cart
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/script.js}"></script>
+<footer th:include="footer.html" style="margin-top: 500px"></footer>
+</body>
+</html>

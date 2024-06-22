@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout Details</title>
+    <link rel="stylesheet" th:href="@{css/userStyle.css}">
+</head>
+<body>
+<link th:include="user/userNavbar.html">
+<div class="checkout-container">
+<div class="checkout-summary">
+    <h2>Checkout Summary</h2>
+    <div class="summary-item">
+        <span>Product Quantity</span>
+        <span th:text="${quantity}"></span>
+    </div>
+    <div class="summary-item">
+        <span>Subtotal</span>
+        <span th:text="${amount}"> TK.</span>
+    </div>
+    <div class="summary-item">
+        <span>Shipping <a href="#" class="changeable">(Changeable)</a></span>
+        <span>48 TK.</span>
+    </div>
+    <div class="summary-item">
+        <span>Total</span>
+        <span th:text="${amount + 48}"> TK.</span>
+    </div>
+    <div class="summary-item payable-total">
+        <span>Payable Total</span>
+        <span th:text="${amount + 48}"> TK.</span>
+    </div>
+    <div class="wrapper">
+        <a th:href="@{/user/payment}" class="checkout" style="margin-top: 20px">Make Payment</a>
+    </div>
+</div>
+</div>
+<link th:include="footer.html">
+</body>
+</html>

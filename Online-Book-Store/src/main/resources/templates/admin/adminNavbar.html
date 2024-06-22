@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Navbar</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-left">
+    <img src="https://t4.ftcdn.net/jpg/02/11/07/81/360_F_211078110_mttxEdu3gsSbMKajsy98E4M4E5RUCiuo.jpg" class="logo" alt="Book Store icon">
+  </div>
+  <div class="navbar-center">
+    <a th:href="@{/admin/books}">Home</a>
+    <a th:href="@{/admin/book/add-form}">Add Book</a>
+    <a th:href="@{/admin/customer-review}">Customer Review</a>
+    <a th:href="@{/admin/order-details}">Orders</a>
+  </div>
+  <div class="navbar-right">
+    <a th:href="@{/logout}" class="signup">Logout</a>
+  </div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,127 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+body {
+    margin: 30px;
+    font-family: "Times New Roman", Georgia, serif;
+}
+.container {
+    position: absolute;
+    padding: 25px;
+    width: auto;
+    text-align: center;
+    /*max-height: 50vh;*/
+    /*overflow: auto;*/
+}
+
+.form-login {
+    background-color: #EDEDED;
+    width: 60vh;
+    padding: 13px;
+    margin-left: 240px;
+    margin-top: -50px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+.register-form-login{
+    background-color: #EDEDED;
+    width: 70vh;
+    padding: 13px;
+    margin-left: 200px;
+    margin-top: -200px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+.form-login h1 {
+    border:0 solid #4f4e4e;
+    border-bottom-width:1px;
+    padding-bottom:10px;
+    text-align: center;
+}
+.register-form-login h1 {
+    border:0 solid #4f4e4e;
+    border-bottom-width:1px;
+    padding-bottom:10px;
+    text-align: center;
+}
+.form-body h1{
+    font-size: 40px;
+    font-weight: bold;
+    font-family: Georgia;
+    margin-left: 520px;
+}
+.form-body{
+    margin-top: -100px;
+}
+.card-body {
+    justify-content: center;
+    align-items: center;
+    background-color: #EDEDED;
+    border-radius: 8px;
+    border-color: black;
+    border-width: 2px;
+    box-shadow: 0 4px 8px rgba(10, 9, 9, 0.1);
+    padding: 15px;
+    width: 70vh;
+    margin-left: 520px;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+.register-form-control {
+    border-radius: 5px;
+    margin-left: 20px;
+    width: 400px;
+    padding: 8px;
+
+}
+
+.wrapper {
+    text-align: center;
+}
+.button {
+    background-color: #e53935;
+    border: none;
+    color: white;
+    padding: 8px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.button1 {
+    background-color: #e53935;
+    border: none;
+    color: white;
+    padding: 8px 145px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.button2 {
+    background-color: #339672;
+    border: none;
+    color: white;
+    padding: 8px 100px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 10px;
+}
+.alert {
+    background-color: #04da9e; /* Red background */
+    color: white; /* White text */
+    padding: 20px; /* Some padding */
+    margin-top: -100px; /* Bottom margin */
+    font-size: 17px;
+}
+
+

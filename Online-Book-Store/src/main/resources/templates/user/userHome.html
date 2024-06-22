@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Home Page</title>
+    <link rel="stylesheet" th:href="@{/css/userStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+</head>
+<body>
+<link th:include="user/userNavbar.html">
+<img th:src="@{/images/book cover.jpg}" alt="home image" class="homeLogo">
+<section class="books-section">
+    <h1>More Than <span class="highlight">1000</span> Books <br>To Order!</h1>
+    <p>Welcome to The Biggest Network of Book Ordering & Delivery</p>
+    <div class="books-container" th:if="${books}">
+        <div class="book" th:each="book :${books}">
+            <img th:src="'data:image/jpeg;base64,' + ${book.imageBase64}" alt="Book Image">
+            <h3 th:text="${book.name}"></h3>
+            <h4 th:text="${book.author}"></h4>
+            <div class="review-rating">
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">★</span>
+                <span class="star">☆</span>
+            </div>
+            <a th:if="${book.id != null}" th:href="@{'/user/book/details/' + ${book.id}}"><button type = submit class="button">View Details</button></a>
+        </div>
+    </div>
+</section>
+<div class="container text-center" style="margin-bottom: 35px; margin-left: 700px" th:if="${totalPage > 1}">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item" style="font-size: 20px">
+                <a th:if="${currentPage > 1}" th:href="@{(${currentPage - 1})}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+            <li class="page-item" style="font-size: 20px">
+                            <span th:each="i: ${#numbers.sequence(1, totalPage)}">
+                                <a th:if="${currentPage != i}" th:href="@{'/user/view-books/page/' + ${i}}">[[${i}]]</a>
+                                <span th:unless="${currentPage != i}">[[${i}]]</span> &nbsp;&nbsp;
+                            </span>
+            </li>
+            <li class="page-item" style="font-size: 20px">
+                <a th:if="${currentPage < totalPage}" th:href="@{(${currentPage + 1})}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+<link th:include="footer.html">
+</body>
+</html>

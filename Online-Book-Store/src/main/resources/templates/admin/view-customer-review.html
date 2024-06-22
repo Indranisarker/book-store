@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Review</title>
+    <link rel="stylesheet" th:href="@{/css/adminStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<link th:include="admin/adminNavbar.html">
+<div class="review-container">
+    <div class="row justify-content-center">
+        <div class="col-lg-12 text-center">
+            <h1>Customer Reviews</h1>
+            <br>
+            <br>
+        <div class="review-card" th:each="review : ${reviews}">
+            <div class="review-header">
+                <h3 th:text="${review.user.first_name + ' ' + review.user.last_name}"></h3>
+                <span th:text="${#dates.format(review.createTime, 'MMMM d, yyyy HH:mm')}"></span>
+            </div>
+            <div class="review-rating">
+                <span class="star" data-value="1" th:classappend="${review.ratings >= 1 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+                <span class="star" data-value="2" th:classappend="${review.ratings >= 2 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+                <span class="star" data-value="3" th:classappend="${review.ratings >= 3 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+                <span class="star" data-value="4" th:classappend="${review.ratings >= 4 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+                <span class="star" data-value="5" th:classappend="${review.ratings >= 5 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+            </div>
+
+            <div class="review-comment" th:text="${review.comments}">
+                Great service and a wonderful collection of books. Will visit again!
+            </div>
+        </div>
+        </div>
+</div>
+    </div>
+</body>
+</html>

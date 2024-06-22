@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Review</title>
+    <link rel="stylesheet" th:href="@{/css/userStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<link th:include="user/userNavbar.html">
+   <h1 class="text-center">Book Review</h1>
+<div class="review-container" th:each="review : ${bookReviews}">
+    <div class="review-header">
+        <div class="name-date">
+            <span class="name" th:text="${review.user.first_name + ' ' + review.user.last_name}"></span>
+            <span class="date" th:text="${review.createDate}"></span>
+        </div>
+    </div>
+    <div class="review-stars">
+        <span class="star" data-value="1" th:classappend="${review.rating >= 1 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+        <span class="star" data-value="2" th:classappend="${review.rating >= 2 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+        <span class="star" data-value="3" th:classappend="${review.rating >= 3 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+        <span class="star" data-value="4" th:classappend="${review.rating >= 4 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+        <span class="star" data-value="5" th:classappend="${review.rating >= 5 ? 'filled' : ''}"><i class="far fa-star"></i></span>
+    </div>
+    <div class="review-body" th:text="${review.review}">Awesome book!</div>
+</div>
+</body>
+</html>

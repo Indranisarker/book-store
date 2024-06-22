@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body style="margin: 20px">
+<link th:include="navbar.html">
+<div class="content">
+    <!-- Success Message -->
+    <div th:if="${message}" class="alert alert-success" role="alert">
+        <strong th:text="${message}"></strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-5 col-md-3">
+                <form th:action="@{/register-user}" th:object="${user}" method="POST">
+                    <div class="register-form-login">
+                        <h1> Register User </h1>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <label style="margin-left: 20px">First Name: </label><br>
+                                <input th:field="${user.first_name}" type="text" class="register-form-control" placeholder="Enter First Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <label style="margin-left: 20px">Last Name: </label><br>
+                                <input th:field="${user.last_name}" type="text" class="register-form-control" placeholder="Enter Last Name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <label style="margin-left: 20px">Email: </label><br>
+                                <input th:field="${user.email}" type="email" class="register-form-control" id="uLogin" placeholder="Enter Email Id" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="input-group">
+                                <label style="margin-left: 20px">Password: </label><br>
+                                <input th:field="${user.password}" type="password" class="register-form-control" id="uPassword" placeholder="Enter Password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="role" style="margin-left: 20px">Role:</label>
+                            <select id="role" name="role" required>
+                                <option value="" disabled selected>Select a role</option>
+                                <option value="ADMIN">ADMIN</option>
+                                <option value="USER">USER</option>
+                            </select>
+                        </div>
+                        <div class="wrapper">
+            <span class="group-btn">
+                <button class="button"><span class="glyphicon glyphicon-log-in"></span> Register</button>
+            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

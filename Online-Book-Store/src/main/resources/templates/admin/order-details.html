@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <link rel="stylesheet" th:href="@{/css/adminStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css"/>
+</head>
+<body>
+<link th:include="admin/adminNavbar.html">
+<div class="order-container">
+    <h1>Order Details</h1>
+    <hr>
+    <div class="order-card" th:each="order, iter : ${orderList}">
+        <div class="order">
+        <div class="order-header">
+            <h4 style="font-weight: bold">Order # <span th:text="${order.order_id}"></span></h4>
+            <div class="total-amount">
+                <h4>Total Amount: <span style="font-weight: bold" th:text="${cartItem.book.price * cartItem.quantity + 48}"></span> </h4>
+                <h4>Payment method: <span style="font-weight: bold">bKash</span></h4>
+            </div>
+        </div>
+        <div class="shipping-info">
+            <h4>Shipping Info</h4>
+           <p th:text="'Customer Full Name:  ' + ${order.shippingInfo.full_name}"></p>
+            <p th:text="'Customer Contact No:  ' + ${order.shippingInfo.phone_no}"></p>
+            <p th:text="'Customer Address:  ' + ${order.shippingInfo.address}"></p>
+        </div>
+        <div class="cart-items">
+            <h4>Cart Items</h4>
+            <ul>
+                <li th:text="'Book Name: ' + ${cartItem.book.name} + ' - ' + 'Quantity: ' + ${cartItem.quantity} + ' - ' + 'Price: ' + ${cartItem.book.price * cartItem.quantity} + ' Tk.'"></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</div>
+<hr>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Review Form</title>
+    <link rel="stylesheet" th:href="@{/css/userStyle.css}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<div class="book-review-container">
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+        <div class="review-modal">
+    <div class="modal-header">
+        <img th:src="'data:image/jpeg;base64,' + ${book.imageBase64}" alt="Product Image" class="product-image">
+        <div class="product-info">
+            <h2 th:text="${book.name}"></h2>
+            <p>Rate this book</p>
+        </div>
+    </div>
+    <form id="reviewForm" th:action="@{'/user/add-book-review/' + ${user.user_id} + '/' + ${book.id}}" th:object="${bookReview}" method="POST">
+        <input type="hidden" th:field="${user.user_id}"/>
+        <input type="hidden" id="rating" name="ratings" th:field="${bookReview.rating}"/>
+        <div class="stars">
+            <span class="star" data-value="1"> <i class="far fa-star"></i></span>
+            <span class="star" data-value="2"> <i class="far fa-star"></i></span>
+            <span class="star" data-value="3"> <i class="far fa-star"></i></span>
+            <span class="star" data-value="4"> <i class="far fa-star"></i></span>
+            <span class="star" data-value="5"> <i class="far fa-star"></i></span>
+        </div>
+        <input type="hidden" id="reviewCount" name="reviewCount" value="0">
+        <textarea  th:field="${bookReview.review}" name="reviewText" placeholder="Describe your experience (optional)" required></textarea>
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</div>
+</div>
+    </div>
+</div>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

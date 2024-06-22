@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart Modal View</title>
+    <link rel="stylesheet" th:href="@{/css/userStyle.css}">
+    <script th:src="@{js/bootstrap.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+</head>
+<body>
+<div class="book-review-container">
+    <div id="reviewModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="review-modal">
+                <div class="modal-header">
+                    <p style="font-size: 18px; font-weight: bold"><span th:text="${book.name}"></span> is added successfully!</p>
+                </div>
+                <div class="button-container">
+                    <a th:href="@{/user/view-books}" class="review-button">Buy More</a>
+                    <input type="hidden" name="bookId" th:value="${book.id}">
+                        <a th:href="@{/user/cart}" class="add-to-cart">
+                            <span class="glyphicon glyphicon-shopping-cart" style="font-size: 17px"></span> Go to Cart </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

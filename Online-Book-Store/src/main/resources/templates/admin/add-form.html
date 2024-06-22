@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+<link th:include="admin/adminNavbar.html">
+<div class="container">
+    <br>
+    <br>
+    <div class="row">
+        <div class="form-body">
+            <h1 class="text-center"> Create New Book</h1>
+            <br>
+            <div class="card-body">
+                <form th:action="@{/admin/book/create}" th:object="${book}" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="form-label">Book Name</label>
+                        <br>
+                        <input type="text" class="form-control"
+                               th:field="${book.name}"
+                               placeholder="Enter Book Name" id="name" required>
+                        <br>
+                        <label class="form-label">Author Name</label>
+                        <br>
+                        <input type="text" class="form-control"
+                               th:field="${book.author}"
+                               placeholder="Enter Author Name" id="author" required>
+                        <br>
+                        <label class="form-label">Category</label>
+                        <br>
+                        <input type="text" class="form-control"
+                               th:field="${book.category}"
+                               placeholder="Enter Book Category" id="category" required>
+                        <br>
+                        <label class="form-label">Price</label>
+                        <br>
+                        <input type="text" class="form-control"
+                               th:field="${book.price}"
+                               placeholder="Enter Book Price" id="price" required>
+                        <br>
+                        <label class="form-label">Quantity</label>
+                        <br>
+                        <input type="text" class="form-control"
+                               th:field="${book.quantity}"
+                               placeholder="Enter Book Quantity" id="quantity" required>
+                        <br>
+                        <label class="form-label">Book Length</label>
+                        <br>
+                        <input type="text" class="form-control"
+                               th:field="${book.pages}"
+                               placeholder="Enter Number of Pages" id="pages" required>
+                        <br>
+                        <label class="form-label">Edition</label>
+                        <br>
+                        <input type="text" class="form-control"
+                               th:field="${book.edition}"
+                               placeholder="Enter Book Edition " id="edition" required>
+                        <br>
+                        <label class="form-label">Publication</label>
+                        <br>
+                        <input type="text" class="form-control"
+                               th:field="${book.publication}"
+                               placeholder="Enter Publication Name" id="publication" required>
+                        <br>
+                        <label class="form-label">ISBN</label>
+                        <br>
+                        <input type="text" class="form-control"
+                               th:field="${book.ISBN}"
+                               placeholder="Enter ISBN Number" id="ISBN" required>
+                        <br>
+                        <label class="form-label">Image</label>
+                        <input type="file"
+                               class="form-control"
+                               th:field="${book.image}" name="image" accept="image/*" required>
+                        <br>
+                        <div class="box-footer">
+                            <button type="submit" class="button">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Success</title>
+    <link rel="stylesheet" th:href="@{css/userStyle.css}">
+</head>
+<body>
+<link th:include="user/userNavbar.html">
+<div class="success">
+<div class="success-container">
+    <img th:src="@{/images/success-icon.png}" alt="Success Image" class="success-image">
+    <h1>Confirm Your Order!</h1>
+    <p>Thank you for ordering from our bookstore. Your order has been placed successfully.</p>
+    <p>Hope you will get your books within <b>2/3</b> days.</p>
+    <p>We hope you enjoy your new books! Best wishes and happy reading!</p>
+    <div class="wrapper">
+        <a th:href="@{/user/view-books}" class="checkout" style="margin-top: 30px; margin-left: 90px">Back to Home</a>
+    </div>
+</div>
+</div>
+<link th:include="footer.html">
+</body>
+</html>

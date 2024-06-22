@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Review</title>
+    <link rel="stylesheet" th:href="@{css/userStyle.css}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<link th:include="user/userNavbar.html">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-offset-5 col-lg-7">
+            <h3 style="text-align: center">Add BookStore Service Review <br>
+                <small style="color: #4caf50">Please share your valuable review to ensure our best services to you</small></h3>
+            <form th:action="@{'/user/add-review/' + ${review.user.user_id}}" th:object="${review}" method="POST">
+                <input type="hidden" th:field="${review.user.user_id}"/>
+                <input type="hidden" id="rating" name="ratings" th:field="${review.ratings}"/>
+                <div class="review-form">
+                    <p>Rate Our Service</p>
+                    <div class="stars">
+                        <span class="star" data-value="1"> <i class="far fa-star"></i></span>
+                        <span class="star" data-value="2"> <i class="far fa-star"></i></span>
+                        <span class="star" data-value="3"> <i class="far fa-star"></i></span>
+                        <span class="star" data-value="4"> <i class="far fa-star"></i></span>
+                        <span class="star" data-value="5"> <i class="far fa-star"></i></span>
+                    </div>
+                    <input type="hidden" id="reviewCount" name="reviewCount" value="0">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <label>Write Comments</label>
+                            <textarea style="margin-left: -2px"
+                                  th:field="${review.comments}"  class="form-control" id="address" rows="3" placeholder="Share your experience here"></textarea>
+                        </div>
+                    </div>
+                    <div class="wrapper">
+                        <button type="submit" class="submit-review-btn">Submit Review</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/script.js}"></script>
+<link th:include="footer.html">
+</body>
+</html>
